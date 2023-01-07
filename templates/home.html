@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} home {% endblock title%}
+
+{% block content %}
+{% if post_list %}
+{%for post in post_list%}
+<div class="post-block">
+    <h2>{{ post.title }} | <span class="text-muted"> By:{{post.author}} </span></h2>
+    <blockquote>{{post.date}}</blockquote>
+    <p>{{ post.body|slice:":100" }}...</p>
+    <div class="row">
+        <a href="{% url 'detail_post' post.pk %}">
+            <button class="col-sm-3 btn btn-primary">Read More</button>
+        </a>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock content %}

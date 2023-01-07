@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+
+{% block title %}Login{% endblock title%}
+
+{% block header %}{% endblock header %}
+
+{% block content %}
+
+<body>
+    <div id="form" class="container">
+        <h2 class="form-ex">Login</h2>
+        <form action="" method="post">
+            <div class="form-container">
+                {%csrf_token%}
+                {% for field in form %}
+                <div class="row">
+                    <div class="col-sm-12">
+                        {{field}}
+                    </div>
+                </div>
+                {% endfor %}
+                <a href="#" class="form-footer">Forgot Password?</a>
+            </div>
+            <input type="submit" value="submit" class="btn-primary btn col-sm-12">
+        </form>
+        <p class="form-ex">Not registered? <a href="{% url 'signup' %}">Create an account</a></p>
+        <span style="color: rgb(206, 45, 45);">
+            <p>{{form.errors}}</p>
+        </span>
+    </div>
+</body>
+{% endblock content %}

@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>{% block title %} {% endblock title%}</title>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block head %}
+    {% endblock head %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        const toggleButton = document.getElementById('toggle-button');
+        const sidebar = document.getElementsByClassName('side-bar')[0];
+
+        // Toggle the "expanded" class on the sidebar when the toggle button is clicked
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('expanded');
+        });
+
+    </script>
+
+</head>
+{% block header %}
+<header>
+
+</header>
+{% endblock header %}
+
+<body>
+    <header>
+        <div class="side-bar">
+            <ul>
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">
+                    <li>logout</li>
+                </a>
+                <a href="{% url 'add_post' %}">
+                    <li>+Add</li>
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}">
+                    <li>login</li>
+                </a>
+
+                <a href="{% url 'signup' %}">
+
+                    <li data-image="image1">signup
+                    </li>
+                </a>
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock content %}
+</body>
+
+</html>
