@@ -60,33 +60,54 @@ p {
         left: 0;
         font-size: larger;
         height: 100%;
-        width: 5%;
+        width: 70px;
         overflow: hidden;
-        transition: 2s;
+        transition: 0.5s;
         z-index: 1;
     }
-
-    .side-bar:hover {
-        width: 15%;
-    }
-
 
     .side-bar li {
         list-style-type: none;
         font-size: larger;
         margin-left: -30px;
         display: block;
+        color: rgb(226, 226, 226);
         background-repeat: no-repeat;
         background-position: left center;
         background-size: 32px 32px;
         overflow: hidden;
         padding: 12px 10px 12px 60px;
+        transition: 1s;
     }
 
-    .side-bar li[data-image="image1"] {
+    .side-bar li:hover {
+        text-shadow: 20px;
+        color: rgb(148, 148, 224);
+    }
+
+    .side-bar li[data-image="logout"] {
         background-image: url('/static/img/logout.png');
     }
 
+    .side-bar li[data-image="login"] {
+        background-image: url('/static/img/login.png');
+    }
+
+    .side-bar li[data-image="signup"] {
+        background-image: url('/static/img/signup.png');
+    }
+
+    .side-bar li[data-image="home"] {
+        background-image: url('/static/img/home.png');
+    }
+
+    .side-bar li[data-image="add"] {
+        background-image: url('/static/img/add.png');
+    }
+
+    .side-bar li[data-image="menu"] {
+        background-image: url('/static/img/menu.png');
+    }
 
     #form.container {
         width: 25%;

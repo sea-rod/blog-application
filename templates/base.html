@@ -12,13 +12,36 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
-        const toggleButton = document.getElementById('toggle-button');
-        const sidebar = document.getElementsByClassName('side-bar')[0];
+        document.addEventListener('click', function (event) {
 
-        // Toggle the "expanded" class on the sidebar when the toggle button is clicked
-        toggleButton.addEventListener('click', () => {
-            sidebar.classList.toggle('expanded');
+            if (!event.target.closest('.side-bar')) {
+                closeSidebar();
+                console.log("h");
+            }
+            else {
+                console.log("he");
+                expand();
+            }
+
         });
+
+        function closeSidebar() {
+            const menu = document.getElementsByClassName("side-bar")[0];
+            menu.style.width = "70px";
+        }
+
+        function expand() {
+            console.log("he1");
+            const menu = document.getElementsByClassName("side-bar")[0];
+            if (menu.style.width == "200px") {
+                menu.style.width = "70px";
+            }
+            else {
+                menu.style.width = "200px";
+            }
+        }
+
+
 
     </script>
 
@@ -33,21 +56,25 @@
     <header>
         <div class="side-bar">
             <ul>
-                {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}">
-                    <li>logout</li>
+                <li data-image="menu">Menu</li>
+                <a href="{% url 'home' %}">
+                    <li data-image="home">Home</li>
                 </a>
+                {% if user.is_authenticated %}
                 <a href="{% url 'add_post' %}">
-                    <li>+Add</li>
+                    <li data-image="add">Add</li>
+                </a>
+                <a href="{% url 'logout' %}">
+                    <li data-image="logout">logout</li>
                 </a>
                 {% else %}
                 <a href="{% url 'login' %}">
-                    <li>login</li>
+                    <li data-image="login">login</li>
                 </a>
 
                 <a href="{% url 'signup' %}">
 
-                    <li data-image="image1">signup
+                    <li data-image="signup">signup
                     </li>
                 </a>
                 {% endif %}
