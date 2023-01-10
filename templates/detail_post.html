@@ -14,6 +14,28 @@
         <a class="nav-right btn btn-danger article-author" href="{% url 'delete_post' post.pk %}">delete</a>
         {% endif %}
     </div>
+    <hr>
+    <div>
+        <h2>Comments {{ post.comment_set.all| length }}</h2>
+
+        {% for comment in post.comment_set.all %}
+        <div class="comment">
+            <b>{{ comment.author }}</b> <br> {{ comment.body }}
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+
+
+    <div>
+        <form action="" method="post">
+            {%for field in form%}
+            {% csrf_token %}
+            {{field}}
+            {% endfor%}
+            <button type="submit" class="btn btn-primary col-sm-3">Save</button>
+        </form>
+    </div>
 
 </div>
 {% endblock content %}
