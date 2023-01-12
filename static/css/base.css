@@ -4,6 +4,7 @@ body {
 
 .container {
     background-color: rgb(24, 24, 24);
+    color: aliceblue;
     width: 75%;
     padding: 30px;
     margin-top: 25%;
@@ -148,8 +149,7 @@ p {
     }
 
     #add-form.container {
-        margin: 0;
-
+        margin: 10% auto;
     }
 
     .post-block {
@@ -183,6 +183,7 @@ p {
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        white-space: pre-line;
     }
 
     .article-author {
