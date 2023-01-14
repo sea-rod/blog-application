@@ -43,7 +43,7 @@ h2.form-ex {
     background-color: rgb(39, 39, 39);
     color: rgb(220, 247, 255);
     position: relative;
-    margin: 50px 0 -25px 0;
+    margin: 55px 0 -25px 0;
     padding: 5%;
     border-radius: 10px;
     width: 100%;
@@ -69,6 +69,39 @@ p {
 #menu li:hover {
     text-shadow: 20px;
     color: rgb(148, 148, 224);
+}
+
+.article {
+    background-color: rgb(39, 39, 39);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: justify;
+    color: rgb(220, 247, 255);
+    width: 95%;
+    margin: 55px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    white-space: pre-line;
+}
+
+.comment {
+    background-color: aliceblue;
+    color: rgb(54, 54, 54);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: medium;
+
+}
+
+div {
+    white-space: normal;
+}
+
+
+hr {
+    width: 100%;
 }
 
 .side-bar {
@@ -197,26 +230,12 @@ li[data-image="menu"] {
     }
 
     .comment {
-        padding: 10px;
-        background-color: aliceblue;
-        color: rgb(54, 54, 54);
-        margin-bottom: 5px;
-        font-size: medium;
-        border-radius: 10px;
+        padding: 5px;
     }
 
     .article {
-        background-color: rgb(39, 39, 39);
-        border-radius: 10px;
-        padding: 20px;
-        text-align: justify;
-        color: rgb(220, 247, 255);
         width: 70%;
         margin: 1% auto;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        white-space: pre-line;
     }
 
     .article-author {
