@@ -20,20 +20,20 @@
 
         {% for comment in post.comment_set.all %}
         <div class="comment">
-            <b>{{ comment.author }}</b> <br> {{ comment.body }}
+            <p><b>{{ comment.author }}</b> <br> {{ comment.body }}</p>
         </div>
         {% endfor %}
     </div>
     <hr>
 
 
-    <div>
+    <div class="form-container">
         <form action="" method="post">
             {%for field in form%}
             {% csrf_token %}
             {{field}}
             {% endfor%}
-            <button type="submit" class="btn btn-primary col-sm-3">Save</button>
+            <button type="submit" class="btn btn-primary col-sm-3">Post</button>
         </form>
     </div>
 
