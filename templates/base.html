@@ -14,7 +14,7 @@
     <script>
         document.addEventListener('click', function (event) {
 
-            if (!event.target.closest('.side-bar')) {
+            if (!event.target.closest('#menu')) {
                 closeSidebar();
                 console.log("h");
             }
@@ -26,18 +26,21 @@
         });
 
         function closeSidebar() {
-            const menu = document.getElementsByClassName("side-bar")[0];
-            menu.style.width = "70px";
+            const menu = document.getElementById("menu");
+            menu.className = "side-bar";
         }
 
         function expand() {
-            console.log("he1");
-            const menu = document.getElementsByClassName("side-bar")[0];
-            if (menu.style.width == "200px") {
-                menu.style.width = "70px";
+
+            const menu = document.getElementById("menu")
+            console.log(menu.className);
+            if (menu.className == "side-bar-expand") {
+                console.log("sup")
+                menu.className = "side-bar"
             }
             else {
-                menu.style.width = "200px";
+                menu.className = "side-bar-expand";
+                console.log("heh")
             }
         }
 
@@ -53,34 +56,34 @@
 {% endblock header %}
 
 <body>
-    <header>
-        <div class="side-bar">
-            <ul>
-                <li data-image="menu">Menu</li>
-                <a href="{% url 'home' %}">
-                    <li data-image="home">Home</li>
-                </a>
-                {% if user.is_authenticated %}
-                <a href="{% url 'add_post' %}">
-                    <li data-image="add">Add</li>
-                </a>
-                <a href="{% url 'logout' %}">
-                    <li data-image="logout">logout</li>
-                </a>
-                {% else %}
-                <a href="{% url 'login' %}">
-                    <li data-image="login">login</li>
-                </a>
+    <!-- <header> -->
+    <div id="menu" class="side-bar">
+        <ul>
+            <li data-image="menu">Menu</li>
+            <a href="{% url 'home' %}">
+                <li data-image="home">Home</li>
+            </a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'add_post' %}">
+                <li data-image="add">Add</li>
+            </a>
+            <a href="{% url 'logout' %}">
+                <li data-image="logout">logout</li>
+            </a>
+            {% else %}
+            <a href="{% url 'login' %}">
+                <li data-image="login">login</li>
+            </a>
 
-                <a href="{% url 'signup' %}">
+            <a href="{% url 'signup' %}">
 
-                    <li data-image="signup">signup
-                    </li>
-                </a>
-                {% endif %}
-            </ul>
-        </div>
-    </header>
+                <li data-image="signup">signup
+                </li>
+            </a>
+            {% endif %}
+        </ul>
+    </div>
+    <!-- </header> -->
     {% block content %}
     {% endblock content %}
 </body>

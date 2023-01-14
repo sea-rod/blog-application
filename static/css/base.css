@@ -3,14 +3,19 @@ body {
 }
 
 .container {
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(37, 37, 37);
     color: aliceblue;
-    width: 75%;
+    width: 85%;
     padding: 30px;
     margin-top: 25%;
     border-radius: 10px;
     text-align: left;
     position: relative;
+}
+
+h2.form-ex {
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 .fields {
@@ -22,19 +27,29 @@ body {
     color: rgb(83, 79, 100);
 }
 
-.fields,
+#form .fields,
 .btn {
     position: relative;
-    /* width: 100%; */
     margin-top: 10px;
     border-radius: 10px;
     min-height: 40px;
+}
+
+.post-block .btn {
+    left: 15px;
 }
 
 .post-block {
     background-color: rgb(39, 39, 39);
     color: rgb(220, 247, 255);
     position: relative;
+    margin: 50px 0 -25px 0;
+    padding: 5%;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .form-ex {
@@ -51,12 +66,27 @@ p {
     word-wrap: break-word;
 }
 
-.side-bar li:hover {
+#menu li:hover {
     text-shadow: 20px;
     color: rgb(148, 148, 224);
 }
 
 .side-bar {
+    background-color: rgb(34, 34, 34);
+    color: rgb(224, 224, 224);
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    font-size: larger;
+    overflow: hidden;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.side-bar-expand {
     background-color: black;
     color: white;
     padding: 10px;
@@ -64,14 +94,15 @@ p {
     top: 0;
     left: 0;
     font-size: larger;
-    height: 50px;
-    width: 50px;
     overflow: hidden;
     transition: 0.5s;
     z-index: 1;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
-.side-bar li {
+li {
     list-style-type: none;
     font-size: larger;
     margin-left: -30px;
@@ -85,44 +116,41 @@ p {
     transition: 1s;
 }
 
-.side-bar li[data-image="logout"] {
+li[data-image="logout"] {
     background-image: url('/static/img/logout.png');
 }
 
-.side-bar li[data-image="login"] {
+li[data-image="login"] {
     background-image: url('/static/img/login.png');
 }
 
-.side-bar li[data-image="signup"] {
+li[data-image="signup"] {
     background-image: url('/static/img/signup.png');
 }
 
-.side-bar li[data-image="home"] {
+li[data-image="home"] {
     background-image: url('/static/img/home.png');
 }
 
-.side-bar li[data-image="add"] {
+li[data-image="add"] {
     background-image: url('/static/img/add.png');
 }
 
-.side-bar li[data-image="menu"] {
+li[data-image="menu"] {
     background-image: url('/static/img/menu.png');
 }
 
 @media only screen and (min-width: 768px) {
     .side-bar {
-        background-color: black;
-        color: white;
         padding: 10px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        font-size: larger;
         height: 100%;
         width: 70px;
-        overflow: hidden;
-        transition: 0.5s;
-        z-index: 1;
+    }
+
+
+    .side-bar-expand {
+        text-align: left;
+        width: 200px;
     }
 
     .side-bar li {
@@ -150,6 +178,11 @@ p {
 
     #add-form.container {
         margin: 10% auto;
+    }
+
+    h2.form-ex {
+        margin-top: 20px;
+        margin-bottom: 10px;
     }
 
     .post-block {
